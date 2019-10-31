@@ -31,6 +31,8 @@ services:
       - result-tier
       - back-tier
     restart: always
+    volumes:
+      - postgres-volume
   result:
     build: result
     ports:
@@ -46,3 +48,6 @@ networks:
   poll-tier:
   result-tier:
   back-tier:
+
+volumes:
+  postgres-volume:
