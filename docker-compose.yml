@@ -7,6 +7,9 @@ services:
     networks:
       - poll-tier
     restart: always
+    environment:
+      - PORT=80
+      - REDIS_HOSTNAME=redis
   redis:
     image: redis
     ports: ["6379"]
@@ -19,6 +22,9 @@ services:
     networks:
       - back-tier
     restart: always
+    environment:
+      - REDIS_HOSTNAME=redis
+      - DB_HOSTNAME=db
   db:
     image: postgres
     networks:
@@ -32,9 +38,11 @@ services:
     networks:
       - result-tier
     restart: always
+    environment:
+      - PORT=80
+      - DB_HOSTNAME=db
 
 networks:
   poll-tier:
   result-tier:
   back-tier:
-
