@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 ENV PORT=80
 
-EXPOSE ${PORT}
+EXPOSE 80
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
